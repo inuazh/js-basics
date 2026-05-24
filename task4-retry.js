@@ -14,14 +14,14 @@ const unreliable = async () => {
 
 
 const withRetry = async (fn, retries, delayMs) => {
-    let lastErr = 'err'
+    let lastErr
 
   for (let i = 0; i < retries; i++) {
     try {
      return await fn();
     } catch(err) {
         lastErr = err
-       delay(delayMs)    
+      await delay(delayMs)    
     } 
   } throw lastErr
     

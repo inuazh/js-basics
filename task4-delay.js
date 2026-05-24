@@ -32,7 +32,7 @@ const task3 = async () => {
 
 const tasks = [task1, task2, task3];
 
-runSequentially = async (tasks) => {
+const runSequentially = async (tasks) => {
   for (const task of tasks) {
     await task();
   }

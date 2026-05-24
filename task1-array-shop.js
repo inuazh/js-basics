@@ -45,12 +45,15 @@ const products = [
 
 const cartFilter = (arr) =>{
     const filtered  = arr.filter((n) => n.price > 1000)
-    const saleSumm = arr.filter((n) => n.isOnSale === true).reduce((acc,n)=>acc+n.price,0 )
+    const saleSum = arr.filter((n) => n.isOnSale === true).reduce((acc,n)=>acc+n.price,0 )
     const electroFilter = arr.find((n) => n.category === "электроника")
     const inStockCheck = arr.every(item => item.inStock)
 
-    return {filtered, saleSumm, electroFilter, inStockCheck}
+    return {filtered, saleSum, electroFilter, inStockCheck}
 }
 
 const filter = cartFilter(products)
-console.log(filter.filtered)
+console.log('filtered:', filter.filtered)
+console.log('saleSum:', filter.saleSum)
+console.log('electroFilter:', filter.electroFilter)
+console.log('inStockCheck:', filter.inStockCheck)

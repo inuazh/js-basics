@@ -7,11 +7,13 @@ async function loadUserData(userId) {
   const posts = await fetch(`/api/posts/${userId}`);
   // нарушена структура трай кетч
   try {
-    const data = await user.json();
+   
     // иф должен быть внутри трай
     if (!user.ok) {
       throw new Error("Не удалось загрузить");
     }
+
+     const data = await user.json();
     return data;
   } catch (err) {
     console.log("Ошибка:", err);

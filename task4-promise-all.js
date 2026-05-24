@@ -23,10 +23,10 @@ const loadDashboard = async () => {
 
 loadDashboard();
 
-const loadDashboard2 = async (item) => {
+const loadDashboard2 = async () => {
   const start = Date.now();
   const result = await Promise.all([getUser(), getPosts(), getComments()])
-
+  return result
   console.log(`paralel: ${Date.now() - start}ms`);
 };
 

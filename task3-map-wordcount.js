@@ -18,7 +18,7 @@ const wordCount = (str) => {
 
   const mostFrequent = () => {
     return [...map.entries()].reduce((max, [word, count]) =>
-      count > max[1] ? [word, count] : max,
+      count > max[1] ? [word, count] : max,["", 0]
     );
   };
 

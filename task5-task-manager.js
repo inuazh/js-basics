@@ -20,6 +20,7 @@ class TaskManager {
 
     completeTask(id) {
         const task = this.tasks.get(id)
+        if (!task) return 
         task.completed = true
     }
 
@@ -41,22 +42,17 @@ class TaskManager {
 
 
     async saveToStorage() {
-        try{
-            await delay(300)
-            console.log('saved')
-        }catch(err){
-            throw err
+        await delay(300)
+        if(Math.random() < 0.5){
+            throw new Error("cant save")
         }
+        console.log('saved')
     }
 
 
     async loadFromStorage() {
-        try {
-            await delay(300)
-            console.log('downloaded')
-        } catch (err) {
-            throw err
-        }
+      await delay (3000)
+      return [...this.tasks.values()]
     }
 }
 
